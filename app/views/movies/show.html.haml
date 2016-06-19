@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 -# in app/views/movies/show.html.haml
 
-=======
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
 %h2 Details about #{@movie.title}
 
 %ul#details
@@ -11,7 +8,6 @@
     = @movie.rating
   %li
     Released on:
-<<<<<<< HEAD
     = @movie.release_date.strftime("%B %d, %Y")
 
 %h3 Description:
@@ -21,11 +17,3 @@
 = link_to 'Edit', edit_movie_path(@movie)
 = button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
 = link_to 'Back to movie list', movies_path
-=======
-    = @movie.release_date.strftime("%B %d %Y")
-    
-%h3 Description:
-%p#description= @movie.description
-
-= link_to 'Back to movie list', movies_path
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40

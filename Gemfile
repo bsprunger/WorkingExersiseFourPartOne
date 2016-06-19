@@ -1,17 +1,14 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
+
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-=======
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -20,12 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-<<<<<<< HEAD
+
 # Use Haml as the templating library
 gem 'haml'
-=======
 
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -44,32 +39,29 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-<<<<<<< HEAD
+
 gem 'themoviedb'
 
 gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
 
 gem 'pg'
-=======
+
 gem 'haml'
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-<<<<<<< HEAD
-
   gem 'rspec-rails'
   gem 'guard-rspec'
   
   # Use sqlite3 as the database for Active Record
 
 
-=======
 end
 
 group :development do
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -77,9 +69,3 @@ group :development do
   gem 'spring'
 end
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40

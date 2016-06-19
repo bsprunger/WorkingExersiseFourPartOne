@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -#  This file is app/views/movies/index.html.haml
 %h1 All Movies
 
@@ -8,38 +7,20 @@
     = rating
     = check_box_tag "ratings[#{rating}]", 1, @ratings.include?(rating), :id => "ratings_#{rating}"
   = submit_tag "Refresh", :id => "ratings_submit"
-=======
--# This file is  app/views/movies/index.html
-%h2 All Movies
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
 
 %table#movies
   %thead
     %tr
-<<<<<<< HEAD
       %th{params[:sort] == "title" ? {:class => "hilite"} : {}}= link_to "Movie Title", movies_path(:sort => "title"), :id => "title_header"
       %th Rating
       %th{params[:sort] == "release_date" ? {:class => "hilite"} : {}}= link_to "Release Date", movies_path(:sort => "release_date"), :id => "release_date_header"
-=======
-      %th Movie Title
-      %th Rating
-      %th Release Date
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
       %th More Info
   %tbody
     - @movies.each do |movie|
       %tr
-<<<<<<< HEAD
         %td= movie.title 
         %td= movie.rating
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
-=======
-        %td= movie.title
-        %td= movie.rating
-        %td= movie.release_date
-        %td= link_to "More about: #{movie.title}", movie_path(movie)
-        
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
 = link_to 'Add new movie', new_movie_path

@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-<<<<<<< HEAD
     
     
     def initialize
@@ -51,10 +50,6 @@ class MoviesController < ApplicationController
 
     def new
     # default: render 'new' template
-=======
-    def index
-        @movies = Movie.all
->>>>>>> a3041b8269378256b5d7095957578b3176a0cb40
     end
     
     def movie_params
