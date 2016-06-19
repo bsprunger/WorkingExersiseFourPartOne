@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'themoviedb'
 
+gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -51,9 +53,8 @@ group :development, :test do
   gem 'spring'
 end
 
-group :production do
-  gem 'pg' # for Heroku deployment
-  gem 'rails_12factor'
+group :development, :test do
+  gem 'sqlite3'
 end
 
 
