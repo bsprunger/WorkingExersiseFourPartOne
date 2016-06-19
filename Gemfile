@@ -36,6 +36,8 @@ gem 'themoviedb'
 
 gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
 
+gem 'pg'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -44,13 +46,7 @@ group :development, :test do
   gem 'guard-rspec'
   
   # Use sqlite3 as the database for Active Record
-  group :development, :staging do
-    gem 'sqlite3'
-  end
-  
-  group :production, :test do
-    gem 'pg'
-  end
+
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
