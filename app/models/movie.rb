@@ -1,5 +1,7 @@
+
 class Movie < ActiveRecord::Base
-    def self.all_ratings
-        self.find(:all, :select => "rating", :group => "rating").map(&:rating)
-    end
+  attr_accessible :title, :rating, :description, :release_date
+  def self.all_ratings
+    %w(G PG PG-13 NC-17 R)
+  end
 end

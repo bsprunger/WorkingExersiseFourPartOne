@@ -11,49 +11,37 @@ class MoviesController < ApplicationController
         @movie = Movie.find(id) # look up movie by unique ID
         # will render app/views/movies/show.<extension> by default
     end
-    
-    def index
-        redirect = false
 
-        if params[:sort]
-            @sorting = params[:sort]
-        elsif session[:sort]
-            @sorting = session[:sort]
-            redirect = true
-        end
 
-        if params[:ratings]
-            @ratings = params[:ratings]
-        elsif session[:ratings]
-            @ratings = session[:ratings]
-            redirect = true
-        else
-            @all_ratings.each do |rat|
-                (@ratings ||= { })[rat] = 1
-            end
-            redirect = true
-        end
-
-        if redirect
-            redirect_to movies_path(:sort => @sorting, :ratings => @ratings)
-        end
-
-        Movie.find(:all, :order => @sorting ? @sorting : :id).each do |mv|
-            if @ratings.keys.include? mv[:rating]
-                (@movies ||= [ ]) << mv
-            end
-        end
-
-        session[:sort]    = @sorting
-        session[:ratings] = @ratings
-    end
-
-    def new
-    # default: render 'new' template
-    end
-    
     def movie_params
         params.require(:movie).permit(:title, :rating, :description, :release_date)
+    end
+
+    def index
+        sort = params[:sort] || session[:sort]
+        case sort
+        when 'title'
+        ordering,@title_header = {:title => :asc}, 'hilite'
+        when 'release_date'
+        ordering,@date_header = {:release_date => :asc}, 'hilite'
+        end
+        @all_ratings = Movie.all_ratings
+        @selected_ratings = params[:ratings] || session[:ratings] || {}
+        
+        if @selected_ratings == {}
+        @selected_ratings = Hash[@all_ratings.map {|rating| [rating, rating]}]
+        end
+        
+        if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
+        session[:sort] = sort
+        session[:ratings] = @selected_ratings
+        redirect_to :sort => sort, :ratings => @selected_ratings and return
+        end
+        @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
+    end
+    
+    def new
+    # default: render 'new' template
     end
     
 
@@ -75,7 +63,7 @@ class MoviesController < ApplicationController
         @movie = Movie.find params[:id]
         @movie.update_attributes!(movie_params)
         flash[:notice] = "#{@movie.title} was successfully updated."
-        redirect_to movie_path(@movie)
+        redirect_to movie_path
     end
 
     def destroy

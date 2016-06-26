@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'activerecord-deprecated_finders', require: 'active_record/deprecated_finders'
+gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -47,4 +48,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions
+  gem 'database_cleaner'               # to clear Cucumber's test database between runs
+  gem 'capybara'                       # lets Cucumber pretend to be a web browser
+  gem 'launchy'                        # a useful debugging aid for user stories
 end
